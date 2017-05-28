@@ -39,12 +39,12 @@ while (1):
 
     # load the frame and resize it
     frame = imutils.resize(frame, width=min(400, frame.shape[1]))
-    for i in range(0,4):
-        crop_frame = frame[0:400, 0+(i*100):200] # Crop from x, y, w, h -> 100, 200, 300, 400
+    for i in range(0,2):
+        crop_frame = frame[0:frame.shape[0], (i*100):200] # Crop from x, y, w, h -> 100, 200, 300, 400
 
         # detect people in the crop frame
         start = datetime.datetime.now()
-        (rects, weights) = hog.detectMultiScale(frame, 0, winStride=winStride,
+        (rects, weights) = hog.detectMultiScale(crop_frame, 0, winStride=winStride,
                                             padding=padding, scale=args["scale"], useMeanshiftGrouping=meanShift)
         print("[INFO] detection took: {}s".format(
             (datetime.datetime.now() - start).total_seconds()))
