@@ -38,7 +38,7 @@ while (1):
 
 
     # load the frame and resize it
-    frame = imutils.resize(frame, width=min(400, frame.shape[1]))
+    frame = imutils.resize(frame, width=min(400, 1000))#frame.shape[1]))
     for i in range(0,2):
         crop_frame = frame[0:frame.shape[0], (i*100):200] # Crop from x, y, w, h -> 100, 200, 300, 400
 
@@ -53,12 +53,13 @@ while (1):
         for (x, y, w, h) in rects:
             x = (i * 100) + x
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-
+        cv2.imshow("Crop", crop_frame)
         #cv2.imshow("Detections", crop_frame)
 
     # show the output image
 
-    cv2.imshow("Crop", frame)
+    cv2.imshow("Frame", frame)
+    cv2.imshow("Crop", crop_frame)
     k = cv2.waitKey(1) & 0xff
     if k == 27:
         break
