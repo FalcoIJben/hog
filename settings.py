@@ -1,0 +1,22 @@
+kernel1X = 4 #8
+kernel1Y = 3 #6
+kernel1_iteration = 1
+
+kernel2X = 8
+kernel2Y = 6	
+kernel2_iteration = 1
+
+contour_index = -1 #minus for all
+countour_R = 0
+countour_G = 255
+countour_B = 0
+
+minContourSize = 25000
+minHeight = 300
+minWidth = 75
+
+
+#display
+maxWidth = 200
+
+marge = 25
